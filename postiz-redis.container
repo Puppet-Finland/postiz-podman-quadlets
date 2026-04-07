@@ -1,0 +1,13 @@
+[Container]
+ContainerName=postiz-redis
+HealthCmd=redis-cli ping
+HealthInterval=10s
+HealthRetries=3
+HealthTimeout=3s
+Image=redis:7.2
+Network=postiz
+Volume=postiz-redis:/data
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=300

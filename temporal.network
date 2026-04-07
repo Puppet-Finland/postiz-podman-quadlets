@@ -1,0 +1,4 @@
+# temporal-network.network
+[Network]
+Driver=bridge
+NetworkName=temporal

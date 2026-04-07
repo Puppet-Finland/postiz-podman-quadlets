@@ -1,0 +1,13 @@
+[Unit]
+Requires=temporal.service
+After=temporal.service
+
+[Container]
+ContainerName=temporal-admin-tools
+EnvironmentFile=/etc/containers/systemd/users/1001/temporal-admin-tools.env
+Image=temporalio/admin-tools:1.28.1-tctl-1.18.4-cli-1.4.1
+Network=temporal
+PodmanArgs=--attach stdin --tty
+
+[Service]
+TimeoutStartSec=300

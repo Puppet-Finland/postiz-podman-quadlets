@@ -1,0 +1,14 @@
+[Container]
+ContainerName=postiz-postgres
+EnvironmentFile=/etc/containers/systemd/users/1001/postiz-postgresql.env
+HealthCmd=pg_isready -U postiz-user -d postiz-db-local
+HealthInterval=10s
+HealthRetries=3
+HealthTimeout=3s
+Image=postgres:17-alpine
+Network=postiz
+Volume=postiz-postgresql:/var/lib/postgresql/data
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=300

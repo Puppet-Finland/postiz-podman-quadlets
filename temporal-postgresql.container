@@ -1,0 +1,11 @@
+[Container]
+ContainerName=temporal-postgresql
+EnvironmentFile=/etc/containers/systemd/users/1001/temporal-postgresql.env
+ExposeHostPort=5432
+Image=postgres:16
+Network=temporal
+Volume=temporal-postgresql:/var/lib/postgresql/data
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=300

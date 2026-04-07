@@ -1,0 +1,9 @@
+[Container]
+ContainerName=temporal-ui
+EnvironmentFile=/etc/containers/systemd/users/1001/temporal-ui.env
+Image=temporalio/ui:2.34.0
+Network=temporal
+PublishPort=8080:8080
+
+[Service]
+TimeoutStartSec=300

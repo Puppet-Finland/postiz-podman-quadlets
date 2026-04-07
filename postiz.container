@@ -1,0 +1,21 @@
+[Install]
+WantedBy=default.target
+
+[Unit]
+Requires=postiz-postgresql.service postiz-redis.service temporal.service
+Wants=postiz-spotlight.service
+After=postiz-postgresql.service postiz-redis.service temporal.service
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=300
+
+[Container]
+ContainerName=postiz
+EnvironmentFile=/etc/containers/systemd/users/1001/postiz.env
+Image=ghcr.io/gitroomhq/postiz-app:latest
+Network=postiz
+Network=temporal
+PublishPort=4007:5000
+Volume=postiz-config:/config/
+Volume=postiz-uploads:/uploads/

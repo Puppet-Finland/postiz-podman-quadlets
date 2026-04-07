@@ -1,0 +1,9 @@
+[Container]
+ContainerName=spotlight
+Image=ghcr.io/getsentry/spotlight:latest
+Network=postiz
+PublishPort=8969:8969/tcp
+Pull=always
+
+[Service]
+TimeoutStartSec=300

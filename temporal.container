@@ -1,0 +1,18 @@
+[Unit]
+Requires=temporal-postgresql.service temporal-elasticsearch.service
+Wants=temporal-ui.service temporal-admin-tools.service
+After=temporal-postgresql.service temporal-elasticsearch.service
+
+[Container]
+ContainerName=temporal
+Environment=DB=postgres12 DB_PORT=5432 POSTGRES_USER=temporal POSTGRES_PWD=temporal POSTGRES_SEEDS=temporal-postgresql DYNAMIC_CONFIG_FILE_PATH=config/dynamicconfig/development-sql.yaml ENABLE_ES=true ES_SEEDS=temporal-elasticsearch ES_VERSION=v7 TEMPORAL_NAMESPACE=default
+EnvironmentFile=/etc/containers/systemd/users/1001/postiz.env
+Image=temporalio/auto-setup:1.28.1
+Label=kompose.volume.type=configMap
+Network=temporal
+PublishPort=7233:7233
+Volume=temporal-dynamicconfig:/etc/temporal/config/dynamicconfig:z
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=300

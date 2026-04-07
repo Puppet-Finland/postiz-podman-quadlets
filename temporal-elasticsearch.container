@@ -1,0 +1,10 @@
+[Container]
+ContainerName=temporal-elasticsearch
+EnvironmentFile=/etc/containers/systemd/users/1001/temporal-elasticsearch.env
+ExposeHostPort=9200
+Image=elasticsearch:7.17.27
+Network=temporal
+Volume=temporal-elasticsearch:/var/lib/elasticsearch/data
+
+[Service]
+TimeoutStartSec=300
