@@ -11,7 +11,7 @@ Restart=on-failure
 TimeoutStartSec=300
 
 [Container]
-ContainerName=postiz
+ContainerName=postiz-app
 EnvironmentFile=/etc/containers/systemd/users/1001/postiz.env
 Image=ghcr.io/gitroomhq/postiz-app:latest
 Network=postiz
