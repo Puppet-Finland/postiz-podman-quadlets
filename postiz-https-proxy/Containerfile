@@ -1,0 +1,2 @@
+FROM docker.io/nginx:1.29.8-trixie
+COPY nginx-ssl.conf /etc/nginx/templates/ssl.conf.template
