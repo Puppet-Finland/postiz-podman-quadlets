@@ -1,3 +1,3 @@
 [Build]
 ImageTag=postiz-https-proxy
-SetWorkingDirectory=/home/postiz/postiz-podman-quadlets/postiz-https-proxy
+SetWorkingDirectory=%h/postiz-podman-quadlets/postiz-https-proxy

@@ -7,7 +7,7 @@ TimeoutStartSec=300
 
 [Container]
 ContainerName=postiz-https-proxy
-EnvironmentFile=/etc/containers/systemd/users/1001/postiz-https-proxy.env
+EnvironmentFile=/etc/containers/systemd/users/%U/postiz-https-proxy.env
 Image=postiz-https-proxy.build
 Network=postiz
 PublishPort=8443:443
